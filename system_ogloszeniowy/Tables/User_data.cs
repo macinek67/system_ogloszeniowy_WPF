@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace system_ogloszeniowy.classes
 {
-    internal class User_data
+    public class User_data
     {
         [PrimaryKey, AutoIncrement]
         public int User_data_id { get; set; }
@@ -19,10 +19,9 @@ namespace system_ogloszeniowy.classes
         public string? Name { get; set; }
         [MaxLength(25)]
         public string? Surname { get; set; }
-        public DateTime? Birth_date { get; set; }
+        public string? Birth_date { get; set; }
         [MaxLength(9)]
         public string? Telephone_number { get; set; }
-        public string? Pfp { get; set; }
         [MaxLength(35)]
         public string? City { get; set; }
         [MaxLength(75)]

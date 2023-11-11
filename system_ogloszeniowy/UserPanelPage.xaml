@@ -6,9 +6,103 @@
       xmlns:local="clr-namespace:system_ogloszeniowy"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="UserPanelPage">
+      Title="UserPanelPage" Background="White">
 
-    <Grid>
-        
-    </Grid>
+    <ScrollViewer>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="1" Grid.Column="1" CornerRadius="3" BorderBrush="Black" BorderThickness="1" Padding="5">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <Label Content="Dane personalne:" FontWeight="Bold"></Label>
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Width="210">
+                            <StackPanel>
+                                <Label Content="Imie:"></Label>
+                                <TextBox x:Name="nameTextBox"></TextBox>
+                            </StackPanel>
+                            <StackPanel>
+                                <Label Content="Aktualne stanowisko:"></Label>
+                                <TextBox x:Name="currentOccupationTextBox"></TextBox>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Width="210" Margin="20,0,0,0">
+                            <StackPanel>
+                                <Label Content="Naziwsko:"></Label>
+                                <TextBox x:Name="surnameTextBox"></TextBox>
+                            </StackPanel>
+                            <StackPanel>
+                                <Label Content="Miasto:"></Label>
+                                <TextBox x:Name="cityTextBox"></TextBox>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                    <Button x:Name="savePersonDataButton" Click="savePersonDataButton_Click" Content="ZAPISZ" HorizontalAlignment="Center" Width="100" Margin="0,10,0,0"/>
+                    <Separator Margin="0,10,0,0"/>
+                    
+                    <Label Content="Dane kontaktowe:" FontWeight="Bold"></Label>
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Width="210">
+                            <StackPanel>
+                                <Label Content="Data urodzenia:"></Label>
+                                <TextBox x:Name="birthDateTextBox" Text="dd/mm/yyyy"></TextBox>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Width="210" Margin="20,0,0,0">
+                            <StackPanel>
+                                <Label Content="Telefon:"></Label>
+                                <TextBox x:Name="telephoneTextBox"></TextBox>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                    <Button x:Name="contactDataButton" Click="contactDataButton_Click" Content="ZAPISZ" HorizontalAlignment="Center" Width="100" Margin="0,10,0,0"/>
+                    <Separator Margin="0,10,0,0"/>
+                    
+                    <StackPanel>
+                        <Label Content="Podsumowanie zawodowe:" FontWeight="Bold"></Label>
+                        <TextBox x:Name="summaryTextBox" Height="75" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"></TextBox>
+                    </StackPanel>
+                    <Button x:Name="summaryButton" Click="summaryButton_Click" Content="ZAPISZ" HorizontalAlignment="Center" Width="100" Margin="0,10,0,0"/>
+                    <Separator Margin="0,10,0,0"/>
+
+                    <StackPanel>
+                        <Label Content="Języki:" FontWeight="Bold"></Label>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox x:Name="languageTextBox" Width="150"></TextBox>
+                            <ComboBox x:Name="languageLevelComboBox" Width="150" Margin="10,0,0,0">
+                                <ComboBoxItem IsSelected="True">podstawowy</ComboBoxItem>
+                                <ComboBoxItem>średni</ComboBoxItem>
+                                <ComboBoxItem>średnio zaawansowany</ComboBoxItem>
+                                <ComboBoxItem>zaawansowany</ComboBoxItem>
+                                <ComboBoxItem>ojczysty</ComboBoxItem>
+                            </ComboBox>
+                            <Button x:Name="languageAddButton" Click="languageAddButton_Click" Content="DODAJ" Width="100" Margin="25,0,0,0"></Button>
+                        </StackPanel>
+                        
+                        <ScrollViewer Margin="0,15,0,0" Height="125">
+                            <ListView x:Name="languageListView">
+                                <ListView.View>
+                                    <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Employee Information">
+                                        <GridViewColumn DisplayMemberBinding="{Binding Path=Language}" Header="Język" Width="210"/>
+                                        <GridViewColumn DisplayMemberBinding="{Binding Path=Level}" Header="Poziom" Width="210"></GridViewColumn>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                        </ScrollViewer>
+                    </StackPanel>
+                    <Button x:Name="languageDeleteButton" Click="languageDeleteButton_Click" Content="USUŃ" HorizontalAlignment="Left" Width="100" Margin="0,10,0,0"/>
+                    <Separator Margin="0,10,0,0"/>
+                        
+                </StackPanel>
+            </Border>
+        </Grid>
+    </ScrollViewer>
 </Page>

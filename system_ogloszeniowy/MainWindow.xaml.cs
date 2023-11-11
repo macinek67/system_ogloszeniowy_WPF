@@ -25,11 +25,14 @@ namespace system_ogloszeniowy
         {
             InitializeComponent();
             PageFrame.Navigate(new RegistrationPage(this));
+            //e();
         }
         public async void e()
         {
-            var xd = (await App.Database.GetRoles()).Count;
-            MessageBox.Show(xd + "");
+            await App.Database.InsertUser_data(new classes.User_data() { User_id=1});
+            //await App.Database.InsertUser_language(new User_language() { User_id=1, Language="angielski", Level= "średnio zaawansowany" });
+            //await App.Database.InsertRole(new User_role() { Name="user"});
+            //await App.Database.InsertUser(new classes.User() { Role_id=1, Email= "admin@gmail.com", Password="123456" });
         }
     }
 }

@@ -62,5 +62,33 @@ namespace system_ogloszeniowy
         {
             return _database.QueryAsync<User_role>("SELECT * FROM User_role");
         }
+        public Task<List<User_language>> GetUser_language()
+        {
+            return _database.QueryAsync<User_language>("SELECT * FROM User_language");
+        }
+        public Task<List<User_language>> GetUser_language(int user_id)
+        {
+            return _database.QueryAsync<User_language>("SELECT * FROM User_language WHERE User_id=?", user_id);
+        }
+        public Task<int> InsertUser_language(User_language language)
+        {
+            return _database.InsertAsync(language);
+        }
+        public Task<List<User_data>> GetUser_data(int user_id)
+        {
+            return _database.QueryAsync<User_data>("SELECT * FROM User_data WHERE User_id=?", user_id);
+        }
+        public Task<int> InsertUser_data(User_data user_data)
+        {
+            return _database.InsertAsync(user_data);
+        }
+        public Task<int> DeleteUser_language(User_language language)
+        {
+            return _database.DeleteAsync(language);
+        }
+        public Task<int> UpdateUser_data(User_data user_data)
+        {
+            return _database.UpdateAsync(user_data);
+        }
     }
 }

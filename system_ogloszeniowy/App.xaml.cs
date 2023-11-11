@@ -22,7 +22,7 @@ namespace system_ogloszeniowy
             {
                 if (database == null)
                 {
-                    database = new Database(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "systemOgloszeniowy.db3"));
+                    database = new Database("systemOgloszeniowy.db3");
                 }
                 return database;
             }

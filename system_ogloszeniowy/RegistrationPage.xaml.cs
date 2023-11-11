@@ -25,6 +25,20 @@ namespace system_ogloszeniowy
         {
             InitializeComponent();
             this.main = main;
+            zalogujDev();
+        }
+
+        private async void zalogujDev()
+        {
+            emailTextBox.Text = "admin@gmail.com";
+            passwordBox.Password = "123456";
+            var searchedUsersList = await App.Database.GetUsers(emailTextBox.Text, passwordBox.Password);
+            if (searchedUsersList.Count == 1)
+            {
+                var user = searchedUsersList[0];
+                main.PageFrame.Navigate(new UserPanelPage(main, user));
+                return;
+            }
         }
 
         private async void signInButton_Click(object sender, RoutedEventArgs e)
@@ -32,9 +46,11 @@ namespace system_ogloszeniowy
             passwordErrorLabel.Visibility = Visibility.Hidden;
             emailErrorLabel.Visibility = Visibility.Hidden;
 
-            if ((await App.Database.GetUsers(emailTextBox.Text, passwordBox.Password)).Count == 1)
+            var searchedUsersList = await App.Database.GetUsers(emailTextBox.Text, passwordBox.Password);
+            if (searchedUsersList.Count == 1)
             {
-                main.PageFrame.Navigate(new UserPanelPage());
+                var user = searchedUsersList[0];
+                main.PageFrame.Navigate(new UserPanelPage(main, user));
                 return;
             }
 
