@@ -45,6 +45,7 @@ namespace system_ogloszeniowy
             if (userData.Summary != null) summaryTextBox.Text = userData.Summary;
 
             languageListView.ItemsSource = await App.Database.GetUser_language(user.User_id);
+            educationListView.ItemsSource = await App.Database.GetUser_education(user.User_id);
         }
 
         private async void savePersonDataButton_Click(object sender, RoutedEventArgs e)
@@ -83,6 +84,32 @@ namespace system_ogloszeniowy
             if (languageListView.SelectedItem == null) return;
             await App.Database.DeleteUser_language((User_language)languageListView.SelectedItem);
             UploadData();
+        }
+
+        private async void educationAddButton_Click(object sender, RoutedEventArgs e)
+        {
+            await App.Database.InsertUser_education(new User_education() { User_id = user.User_id, 
+                School_name = schoolNameTextBox.Text, 
+                Level = educationLevelComboBox.Text, 
+                Direction = directionTextBox.Text, 
+                Specialization = specializationTextBox.Text, 
+                Period_start = periodStartDatePicker.SelectedDate.Value.Date, 
+                Period_end = periodEndDatePicker.SelectedDate.Value.Date 
+            });
+            UploadData();
+        }
+
+        private async void educationDeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (educationListView.SelectedItem == null) return;
+            await App.Database.DeleteUser_education((User_education)educationListView.SelectedItem);
+            UploadData();
+        }
+
+        private void goBackButton_Click(object sender, RoutedEventArgs e)
+        {
+            main.PageFrame.Navigate(new AnnouncementPage(main, user));
+            return;
         }
     }
 }

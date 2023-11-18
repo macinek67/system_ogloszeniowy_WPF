@@ -18,7 +18,7 @@ namespace system_ogloszeniowy.Tables
         [MaxLength(75)]
         public string School_name { get; set; }
         [MaxLength(35)]
-        public string City { get; set; }
+        public string Direction { get; set; }
         public string Level { get; set; }
         [MaxLength(75)]
         public string Specialization { get; set; }

@@ -90,5 +90,21 @@ namespace system_ogloszeniowy
         {
             return _database.UpdateAsync(user_data);
         }
+        public Task<int> InsertUser_education(User_education education)
+        {
+            return _database.InsertAsync(education);
+        }
+        public Task<int> DeleteUser_education(User_education education)
+        {
+            return _database.DeleteAsync(education);
+        }
+        public Task<int> UpdateUser_education(User_education education)
+        {
+            return _database.UpdateAsync(education);
+        }
+        public Task<List<User_education>> GetUser_education(int user_id)
+        {
+            return _database.QueryAsync<User_education>("SELECT * FROM User_education WHERE User_id=?", user_id);
+        }
     }
 }

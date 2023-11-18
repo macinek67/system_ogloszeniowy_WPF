@@ -20,7 +20,8 @@
                 <RowDefinition Height="10*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Border Grid.Row="1" Grid.Column="1" CornerRadius="3" BorderBrush="Black" BorderThickness="1" Padding="5">
+            <Button x:Name="goBackButton" Click="goBackButton_Click" Content="WRÓĆ" Width="100"></Button>
+            <Border Grid.Row="1" Grid.Column="1" CornerRadius="3" BorderBrush="Black" BorderThickness="1" Padding="5" Margin="0,10,0,10">
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
                     <Label Content="Dane personalne:" FontWeight="Bold"></Label>
                     <StackPanel Orientation="Horizontal">
@@ -100,7 +101,66 @@
                     </StackPanel>
                     <Button x:Name="languageDeleteButton" Click="languageDeleteButton_Click" Content="USUŃ" HorizontalAlignment="Left" Width="100" Margin="0,10,0,0"/>
                     <Separator Margin="0,10,0,0"/>
-                        
+
+                    <StackPanel>
+                        <Label Content="Wykształcenie:" FontWeight="Bold"></Label>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Nazwa szkoly" Width="80"></Label>
+                            <TextBox x:Name="schoolNameTextBox" Width="350"></TextBox>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                            <Label Content="Poziom" Width="80"></Label>
+                            <ComboBox x:Name="educationLevelComboBox" Width="350">
+                                <ComboBoxItem IsSelected="True">podstawowe</ComboBoxItem>
+                                <ComboBoxItem>zawodowe</ComboBoxItem>
+                                <ComboBoxItem>średnie</ComboBoxItem>
+                                <ComboBoxItem>licencjat</ComboBoxItem>
+                                <ComboBoxItem>inżynier</ComboBoxItem>
+                                <ComboBoxItem>magister</ComboBoxItem>
+                                <ComboBoxItem> magister inżynier</ComboBoxItem>
+                                <ComboBoxItem>lekarz medycyny</ComboBoxItem>
+                                <ComboBoxItem>studia podyplomowe</ComboBoxItem>
+                                <ComboBoxItem>MBA</ComboBoxItem>
+                                <ComboBoxItem>doktorat</ComboBoxItem>
+                                <ComboBoxItem>doktor hab.</ComboBoxItem>
+                                <ComboBoxItem>profesor</ComboBoxItem>
+                            </ComboBox>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                            <Label Content="Kierunek" Width="80"></Label>
+                            <TextBox x:Name="directionTextBox" Width="350"></TextBox>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                            <Label Content="Specjalizacja" Width="80"></Label>
+                            <TextBox x:Name="specializationTextBox" Width="350"></TextBox>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                            <Label Content="Okres" Width="80"></Label>
+                            <Label Content="od"></Label>
+                            <DatePicker x:Name="periodStartDatePicker" Width="150"></DatePicker>
+                            <Label Content="do"></Label>
+                            <DatePicker x:Name="periodEndDatePicker" Width="150"></DatePicker>
+                        </StackPanel>
+                        <Button x:Name="educationAddButton" Click="educationAddButton_Click"  Content="DODAJ" Width="100" HorizontalAlignment="Left" Margin="0,10,0,0"></Button>
+
+                        <ScrollViewer Margin="0,15,0,0" Height="125" Width="450" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+                            <ListView x:Name="educationListView">
+                                <ListView.View>
+                                    <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Employee Information">
+                                        <GridViewColumn DisplayMemberBinding="{Binding Path=School_name}" Header="Nazwa szkoly" Width="150"/>
+                                        <GridViewColumn DisplayMemberBinding="{Binding Path=Direction}" Header="Poziom" Width="150"></GridViewColumn>
+                                        <GridViewColumn DisplayMemberBinding="{Binding Path=Level}" Header="Kierunek" Width="150"></GridViewColumn>
+                                        <GridViewColumn DisplayMemberBinding="{Binding Path=Specialization}" Header="Specjalizacja" Width="150"></GridViewColumn>
+                                        <GridViewColumn DisplayMemberBinding="{Binding Path=Period_start}" Header="Od kiedy" Width="150"></GridViewColumn>
+                                        <GridViewColumn DisplayMemberBinding="{Binding Path=Period_end}" Header="Do kiedy" Width="150"></GridViewColumn>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                        </ScrollViewer>
+                    </StackPanel>
+                    <Button x:Name="educationDeleteButton" Click="educationDeleteButton_Click" Content="USUŃ" HorizontalAlignment="Left" Width="100" Margin="0,10,0,0"/>
+
+
                 </StackPanel>
             </Border>
         </Grid>

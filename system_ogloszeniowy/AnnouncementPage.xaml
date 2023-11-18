@@ -1,0 +1,130 @@
+﻿<Page x:Class="system_ogloszeniowy.AnnouncementPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:system_ogloszeniowy"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AnnouncementPage" Background="White">
+
+    <ScrollViewer>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Button x:Name="goBackButton" Click="goBackButton_Click" Content="WRÓĆ" Width="100" Height="25"></Button>
+            <Border Grid.Row="1" Grid.Column="1" CornerRadius="3" BorderBrush="Black" BorderThickness="1" Padding="5" Margin="0,10,0,10">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Width="400">
+                            <TextBlock Text="Programista Globus / C++ lub C#/.NET Framework / JBASE" FontWeight="Bold" FontSize="16" TextWrapping="Wrap"></TextBlock>
+                            <TextBlock Text="emagine sp. z o.o"></TextBlock>
+                        </StackPanel>
+                        <Border BorderBrush="Black" BorderThickness="1" Padding="5" CornerRadius="4" Width="150" Height="65" Margin="15,0,0,0">
+                            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <TextBlock Text="130,00 zł" FontWeight="Bold" TextAlignment="Center"></TextBlock>
+                                <TextBlock Text="net (+ VAT) / hr."></TextBlock>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                    
+                    <Separator Margin="0,15,0,15"/>
+                    
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel Width="275">
+                                <Label Content="• Lokalizacja firmy:" FontWeight="bold"></Label>
+                                <TextBlock Text="Domaniewska 39A, Mokotów, Warszawa"></TextBlock>
+                                <TextBlock Text="Warszawa, Masovian" Foreground="Gray"></TextBlock>
+                            </StackPanel>
+                            <StackPanel>
+                                <StackPanel Width="275" Margin="15,0,0,0">
+                                    <Label Content="• Miejsce pracy:" FontWeight="bold"></Label>
+                                    <TextBlock Text="Polska (praca zdalna)"></TextBlock>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                            <StackPanel Width="275">
+                                <Label Content="• Ważne jeszcze przez 19 dni:" FontWeight="bold"></Label>
+                                <TextBlock Text="do 07 Grudzień 2023"></TextBlock>
+                            </StackPanel>
+                            <StackPanel>
+                                <StackPanel Width="275" Margin="15,0,0,0">
+                                    <Label Content="• Typ umowy:" FontWeight="bold"></Label>
+                                    <TextBlock Text="kontrakt b2b"></TextBlock>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                            <StackPanel Width="275">
+                                <Label Content="• Wymiar pracy:" FontWeight="bold"></Label>
+                                <TextBlock Text="pełen etat"></TextBlock>
+                            </StackPanel>
+                            <StackPanel>
+                                <StackPanel Width="275" Margin="15,0,0,0">
+                                    <Label Content="• Poziom stanowiska:" FontWeight="bold"></Label>
+                                    <TextBlock Text="specjalista (mid / regular)"></TextBlock>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <Separator Margin="0,15,0,15"/>
+
+                    <StackPanel>
+                        <Label Content="Twoje obowiązki:" FontWeight="Bold" FontSize="16"></Label>
+                        <TextBlock Text="• Wytwarzanie oprogramowania w języku jBASIC / C#"></TextBlock>
+                        <TextBlock Text="• Tworzenie nowych i utrzymanie istniejących funkcjonalności w Centralnym Systemie Bankowym"></TextBlock>
+                        <TextBlock Text="• Tworzenie i utrzymanie testów automatycznych"></TextBlock>
+                        <TextBlock Text="• Dbałość o jakość kodu"></TextBlock>
+                    </StackPanel>
+
+                    <Separator Margin="0,15,0,15"/>
+
+                    <StackPanel>
+                        <Label Content="Nasze wymagania:" FontWeight="Bold" FontSize="16"></Label>
+                        <TextBlock Text="• Znajomość technologii: C#/.Net Framework"></TextBlock>
+                        <TextBlock Text="• Chęć pogłębiania wiedzy zarówno z zakresu IT jak i bankowości"></TextBlock>
+                        <TextBlock Text="• Zaangażowanie, umiejętność pracy w zespole zwinnym"></TextBlock>
+                        <TextBlock Text="• Chęć nauki języka JBASIC i bazy danych JBASE"></TextBlock>
+                    </StackPanel>
+
+                    <Separator Margin="0,15,0,15"/>
+
+                    <StackPanel>
+                        <Label Content="Benefity:" FontWeight="Bold" FontSize="16"></Label>
+
+                        <StackPanel Margin="0,10,0,10">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <Border BorderBrush="Black" BorderThickness="1" Padding="5" CornerRadius="4" Width="150" Height="125" Margin="15,0,0,0">
+                                    <TextBlock Text="sharing the costs of sports activities" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                </Border>
+                                <Border BorderBrush="Black" BorderThickness="1" Padding="5" CornerRadius="4" Width="150" Height="125" Margin="15,0,0,0">
+                                    <TextBlock Text="sharing the costs of sports activities" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                </Border>
+                                <Border BorderBrush="Black" BorderThickness="1" Padding="5" CornerRadius="4" Width="150" Height="125" Margin="15,0,0,0">
+                                    <TextBlock Text="sharing the costs of sports activities" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                </Border>
+                            </StackPanel>
+                            
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0" Visibility="Collapsed"></StackPanel>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0" Visibility="Collapsed"></StackPanel>
+                        </StackPanel>
+                        
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </ScrollViewer>
+</Page>
