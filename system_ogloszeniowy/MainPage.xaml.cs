@@ -17,29 +17,17 @@ using system_ogloszeniowy.classes;
 namespace system_ogloszeniowy
 {
     /// <summary>
-    /// Logika interakcji dla klasy AnnouncementPage.xaml
+    /// Logika interakcji dla klasy MainPage.xaml
     /// </summary>
-    public partial class AnnouncementPage : Page
+    public partial class MainPage : Page
     {
         MainWindow main;
         User user;
-        public AnnouncementPage(MainWindow main, User user)
+        public MainPage(MainWindow main, User user)
         {
             InitializeComponent();
-            this.user = user;
             this.main = main;
-            UploadData();
-        }
-
-        private async void UploadData()
-        {
-
-        }
-
-        private void goBackButton_Click(object sender, RoutedEventArgs e)
-        {
-            main.PageFrame.Navigate(new MainPage(main, user));
-            return;
+            this.user = user;
         }
     }
 }

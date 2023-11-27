@@ -7,7 +7,19 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="562" Width="1000" ResizeMode="NoResize">
     <Grid>
-        <Frame x:Name="PageFrame" NavigationUIVisibility="Hidden">
+        <Border Background="White" Height="70" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="2">
+            <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                <Image Source="app_images/logo.jpg" Height="50" HorizontalAlignment="Left"/>
+                <Button Content="Strona glowna" FontSize="16" Background="Transparent" BorderBrush="Transparent" Margin="10,0,10,0"/>
+                <Button Content="Polecane oferty" FontSize="16" Background="Transparent" BorderBrush="Transparent" Margin="10,0,80,0"/>
+                <StackPanel Orientation="Horizontal" Height="40">
+                    <TextBox Width="200" VerticalContentAlignment="Center" FontSize="16"/>
+                    <Button Content="SZUKAJ" Width="70"/>
+                </StackPanel>
+                <Button Content="Moje konto" FontSize="16" Background="Transparent" BorderBrush="Transparent" Margin="90,0,10,0"/>
+            </StackPanel>
+        </Border>
+        <Frame x:Name="PageFrame" NavigationUIVisibility="Hidden" Height="450" VerticalAlignment="Bottom">
             
         </Frame>
     </Grid>
