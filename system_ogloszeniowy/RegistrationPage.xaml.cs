@@ -36,6 +36,7 @@ namespace system_ogloszeniowy
             if (searchedUsersList.Count == 1)
             {
                 var user = searchedUsersList[0];
+                main.user = user;
                 main.PageFrame.Navigate(new MainPage(main, user));
                 return;
             }

@@ -28,6 +28,7 @@ namespace system_ogloszeniowy
             InitializeComponent();
             this.main = main;
             this.user = user;
+            accounmentQuantityLabel.Content = App.Database.CountAnnouncements() + " sprawdzonych ofert pracy";
         }
     }
 }

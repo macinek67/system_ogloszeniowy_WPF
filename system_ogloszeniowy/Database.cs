@@ -106,5 +106,9 @@ namespace system_ogloszeniowy
         {
             return _database.QueryAsync<User_education>("SELECT * FROM User_education WHERE User_id=?", user_id);
         }
+        public int CountAnnouncements()
+        {
+            return _database.Table<Announcement>().CountAsync().Result;
+        }
     }
 }
