@@ -35,9 +35,8 @@ namespace system_ogloszeniowy
             var searchedUsersList = await App.Database.GetUsers(emailTextBox.Text, passwordBox.Password);
             if (searchedUsersList.Count == 1)
             {
-                var user = searchedUsersList[0];
-                main.user = user;
-                main.PageFrame.Navigate(new MainPage(main, user));
+                main.user = searchedUsersList[0];
+                main.PageFrame.Navigate(new MainPage(main, searchedUsersList[0]));
                 return;
             }
         }

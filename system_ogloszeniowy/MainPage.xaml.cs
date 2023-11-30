@@ -29,6 +29,19 @@ namespace system_ogloszeniowy
             this.main = main;
             this.user = user;
             accounmentQuantityLabel.Content = App.Database.CountAnnouncements() + " sprawdzonych ofert pracy";
+            Update();
+        }
+
+        public async void Update()
+        {
+            offers_ListView.ItemsSource = await App.Database.GetAllAnnouncements();
+        }
+
+        private async void viewAnnouncementButton_Click(object sender, RoutedEventArgs e)
+        {
+            var announcement_id = int.Parse(((Button)sender).CommandParameter.ToString());
+            var announcement = (await App.Database.GetAnnouncement(announcement_id)).ElementAt(0);
+            main.PageFrame.Navigate(new AnnouncementPage(main, user, announcement));
         }
     }
 }

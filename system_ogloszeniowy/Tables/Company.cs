@@ -15,7 +15,5 @@ namespace system_ogloszeniowy.classes
         public string Name { get; set; }
         [MaxLength(75)]
         public string Adress { get; set; }
-        public string Localization_link { get; set; }
-        public string Description { get; set; }
     }
 }

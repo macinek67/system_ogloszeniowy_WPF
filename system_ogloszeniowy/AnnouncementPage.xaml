@@ -25,12 +25,12 @@
                 <StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <StackPanel Width="400">
-                            <TextBlock Text="Programista Globus / C++ lub C#/.NET Framework / JBASE" FontWeight="Bold" FontSize="16" TextWrapping="Wrap"></TextBlock>
-                            <TextBlock Text="emagine sp. z o.o"></TextBlock>
+                            <TextBlock x:Name="positionName_TextBlock" Text="Programista Globus / C++ lub C#/.NET Framework / JBASE" FontWeight="Bold" FontSize="16" TextWrapping="Wrap"></TextBlock>
+                            <TextBlock x:Name="companeyName_TextBlock" Text="emagine sp. z o.o"></TextBlock>
                         </StackPanel>
                         <Border BorderBrush="Black" BorderThickness="1" Padding="5" CornerRadius="4" Width="150" Height="65" Margin="15,0,0,0">
                             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                                <TextBlock Text="130,00 zł" FontWeight="Bold" TextAlignment="Center"></TextBlock>
+                                <TextBlock x:Name="earningsValue_TextBlock" FontWeight="Bold" TextAlignment="Center"></TextBlock>
                                 <TextBlock Text="net (+ VAT) / hr."></TextBlock>
                             </StackPanel>
                         </Border>
@@ -42,25 +42,25 @@
                         <StackPanel Orientation="Horizontal">
                             <StackPanel Width="275">
                                 <Label Content="• Lokalizacja firmy:" FontWeight="bold"></Label>
-                                <TextBlock Text="Domaniewska 39A, Mokotów, Warszawa"></TextBlock>
+                                <TextBlock x:Name="adressValue_TextBlock" Text="Domaniewska 39A, Mokotów, Warszawa"></TextBlock>
                             </StackPanel>
                             <StackPanel>
                                 <StackPanel Width="275" Margin="15,0,0,0">
                                     <Label Content="• Miejsce pracy:" FontWeight="bold"></Label>
-                                    <TextBlock Text="Polska (praca zdalna)"></TextBlock>
+                                    <TextBlock x:Name="workPlaceValue_TextBlock" Text="Polska (praca zdalna)"></TextBlock>
                                 </StackPanel>
                             </StackPanel>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
                             <StackPanel Width="275">
-                                <Label Content="• Ważne jeszcze przez 19 dni:" FontWeight="bold"></Label>
-                                <TextBlock Text="do 07 Grudzień 2023"></TextBlock>
+                                <Label Content="• Ważne jeszcze:" FontWeight="bold"></Label>
+                                <TextBlock x:Name="endDateValue_TextBlock" Text="do 07 Grudzień 2023"></TextBlock>
                             </StackPanel>
                             <StackPanel>
                                 <StackPanel Width="275" Margin="15,0,0,0">
                                     <Label Content="• Typ umowy:" FontWeight="bold"></Label>
-                                    <TextBlock Text="kontrakt b2b"></TextBlock>
+                                    <TextBlock x:Name="contractValue_TextBlock" Text="kontrakt b2b"></TextBlock>
                                 </StackPanel>
                             </StackPanel>
                         </StackPanel>
@@ -68,12 +68,12 @@
                         <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
                             <StackPanel Width="275">
                                 <Label Content="• Wymiar pracy:" FontWeight="bold"></Label>
-                                <TextBlock Text="pełen etat"></TextBlock>
+                                <TextBlock x:Name="workTypeValue_TextBlock" Text="pełen etat"></TextBlock>
                             </StackPanel>
                             <StackPanel>
                                 <StackPanel Width="275" Margin="15,0,0,0">
                                     <Label Content="• Poziom stanowiska:" FontWeight="bold"></Label>
-                                    <TextBlock Text="specjalista (mid / regular)"></TextBlock>
+                                    <TextBlock x:Name="positionLevelValue_TextBlock" Text="specjalista (mid / regular)"></TextBlock>
                                 </StackPanel>
                             </StackPanel>
                         </StackPanel>
@@ -81,51 +81,25 @@
 
                     <Separator Margin="0,15,0,15"/>
 
-                    <StackPanel>
+                    <StackPanel x:Name="responsibilitiesValue_StackPanel">
                         <Label Content="Twoje obowiązki:" FontWeight="Bold" FontSize="16"></Label>
-                        <TextBlock Text="• Wytwarzanie oprogramowania w języku jBASIC / C#"></TextBlock>
-                        <TextBlock Text="• Tworzenie nowych i utrzymanie istniejących funkcjonalności w Centralnym Systemie Bankowym"></TextBlock>
-                        <TextBlock Text="• Tworzenie i utrzymanie testów automatycznych"></TextBlock>
-                        <TextBlock Text="• Dbałość o jakość kodu"></TextBlock>
                     </StackPanel>
 
                     <Separator Margin="0,15,0,15"/>
 
-                    <StackPanel>
+                    <StackPanel x:Name="requirementsValue_StackPanel">
                         <Label Content="Nasze wymagania:" FontWeight="Bold" FontSize="16"></Label>
-                        <TextBlock Text="• Znajomość technologii: C#/.Net Framework"></TextBlock>
-                        <TextBlock Text="• Chęć pogłębiania wiedzy zarówno z zakresu IT jak i bankowości"></TextBlock>
-                        <TextBlock Text="• Zaangażowanie, umiejętność pracy w zespole zwinnym"></TextBlock>
-                        <TextBlock Text="• Chęć nauki języka JBASIC i bazy danych JBASE"></TextBlock>
                     </StackPanel>
 
                     <Separator Margin="0,15,0,15"/>
 
-                    <StackPanel>
+                    <StackPanel x:Name="benefitsValue_StackPanel">
                         <Label Content="Benefity:" FontWeight="Bold" FontSize="16"></Label>
-
-                        <StackPanel Margin="0,10,0,10">
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                <Border BorderBrush="Black" BorderThickness="1" Padding="5" CornerRadius="4" Width="150" Height="125" Margin="15,0,0,0">
-                                    <TextBlock Text="sharing the costs of sports activities" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center"></TextBlock>
-                                </Border>
-                                <Border BorderBrush="Black" BorderThickness="1" Padding="5" CornerRadius="4" Width="150" Height="125" Margin="15,0,0,0">
-                                    <TextBlock Text="sharing the costs of sports activities" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center"></TextBlock>
-                                </Border>
-                                <Border BorderBrush="Black" BorderThickness="1" Padding="5" CornerRadius="4" Width="150" Height="125" Margin="15,0,0,0">
-                                    <TextBlock Text="sharing the costs of sports activities" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center"></TextBlock>
-                                </Border>
-                            </StackPanel>
-
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0" Visibility="Collapsed"></StackPanel>
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0" Visibility="Collapsed"></StackPanel>
-                        </StackPanel>
-
                     </StackPanel>
-                    
+
                     <Separator Margin="0,15,0,15"/>
                     
-                    <Button Content="WYSLIJ ZGLOSZENIE" Height="45" Margin="30,20,30,20"/>
+                    <Button x:Name="sendApplication_Button" Click="sendApplication_Button_Click" Content="WYSLIJ ZGLOSZENIE" Height="45" Margin="30,20,30,20"/>
                 </StackPanel>
             </Border>
         </Grid>

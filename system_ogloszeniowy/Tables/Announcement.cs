@@ -16,16 +16,14 @@ namespace system_ogloszeniowy.classes
         public int Company_id { get; set; }
         [ForeignKey(nameof(Announcement_category))]
         public int Category_id { get; set; }
-        [ForeignKey(nameof(Announcement_subcategory))]
-        public int Subcategory_id { get; set; }
         [MaxLength(75)]
         public string Position_name { get; set; }
-        public decimal Earnings { get; set; }
+        public string Earnings { get; set; }
         public string Adress { get; set; }
         public string Position_level { get; set; }
         public string Contract_type { get; set; }
-        public string Working_time { get; set; }
         public string Work_type { get; set; }
+        public string Work_time { get; set; }
         public DateTime End_date { get; set; }
         public string Responsibilities { get; set; }
         public string Requirements { get; set; }

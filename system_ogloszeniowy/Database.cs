@@ -110,5 +110,29 @@ namespace system_ogloszeniowy
         {
             return _database.Table<Announcement>().CountAsync().Result;
         }
+        public Task<int> InsertAnnouncement(Announcement announcement)
+        {
+            return _database.InsertAsync(announcement);
+        }
+        public Task<int> InsertCompany(Company company)
+        {
+            return _database.InsertAsync(company);
+        }
+        public Task<List<Announcement>> GetAnnouncement(int announcement_id)
+        {
+            return _database.QueryAsync<Announcement>("SELECT * FROM Announcement WHERE Announcement_id=?", announcement_id);
+        }
+        public Task<List<Announcement>> GetAllAnnouncements()
+        {
+            return _database.QueryAsync<Announcement>("SELECT * FROM Announcement");
+        }
+        public Task<int> DeleteAnnouncement(Announcement announcement)
+        {
+            return _database.DeleteAsync(announcement);
+        }
+        public Task<List<Company>> GetCompany(int company_id)
+        {
+            return _database.QueryAsync<Company>("SELECT * FROM Company WHERE Company_id=?", company_id);
+        }
     }
 }
