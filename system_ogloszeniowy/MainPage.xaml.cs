@@ -34,7 +34,10 @@ namespace system_ogloszeniowy
 
         public async void Update()
         {
-            offers_ListView.ItemsSource = await App.Database.GetAllAnnouncements();
+            categoriesComboBox.ItemsSource = await App.Database.GetAllCategories();
+
+            offers_ListView.ItemsSource = await App.Database.GetAllAnnouncementsByNewestLimitTen();
+            categories_ListView.ItemsSource = await App.Database.GetAllCategoriesByPopularityLimitTen();
         }
 
         private async void viewAnnouncementButton_Click(object sender, RoutedEventArgs e)
@@ -42,6 +45,11 @@ namespace system_ogloszeniowy
             var announcement_id = int.Parse(((Button)sender).CommandParameter.ToString());
             var announcement = (await App.Database.GetAnnouncement(announcement_id)).ElementAt(0);
             main.PageFrame.Navigate(new AnnouncementPage(main, user, announcement));
+        }
+
+        private void viewCategoryAnnouncement_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

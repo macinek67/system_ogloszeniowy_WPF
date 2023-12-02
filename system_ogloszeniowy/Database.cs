@@ -126,6 +126,11 @@ namespace system_ogloszeniowy
         {
             return _database.QueryAsync<Announcement>("SELECT * FROM Announcement");
         }
+        public Task<List<Announcement>> GetAllAnnouncementsByNewestLimitTen()
+        {
+            return _database.QueryAsync<Announcement>("SELECT * FROM Announcement ORDER BY Announcement_id DESC LIMIT 10");
+        }
+
         public Task<int> DeleteAnnouncement(Announcement announcement)
         {
             return _database.DeleteAsync(announcement);
@@ -133,6 +138,18 @@ namespace system_ogloszeniowy
         public Task<List<Company>> GetCompany(int company_id)
         {
             return _database.QueryAsync<Company>("SELECT * FROM Company WHERE Company_id=?", company_id);
+        }
+        public Task<List<Announcement_category>> GetAllCategories()
+        {
+            return _database.QueryAsync<Announcement_category>("SELECT * FROM Announcement_category");
+        }
+        public Task<List<Announcement_category>> GetAllCategoriesByPopularityLimitTen()
+        {
+            return _database.QueryAsync<Announcement_category>("SELECT * FROM Announcement_category LIMIT 10");
+        }
+        public Task<int> InsertCategory(Announcement_category category)
+        {
+            return _database.InsertAsync(category);
         }
     }
 }

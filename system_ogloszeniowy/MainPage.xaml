@@ -26,14 +26,30 @@
                         <Label Content="Szukaj wymarzonej pracy:" FontSize="20" FontWeight="Bold"/>
                         <StackPanel Orientation="Horizontal" Margin="0,10,0,5" Height="40">
                             <TextBox Text="Stanowisko, firma, slowo kluczowe" VerticalContentAlignment="Center" Padding="5" Width="150"/>
-                            <ComboBox Width="150" VerticalContentAlignment="Center">
-                                <ComboBoxItem IsSelected="True">Programowanie</ComboBoxItem>
+                            <ComboBox x:Name="categoriesComboBox" Width="150" VerticalContentAlignment="Center">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Name}"/>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
                             </ComboBox>
                             <ComboBox Width="150" VerticalContentAlignment="Center">
-                                <ComboBoxItem IsSelected="True">Praktykant</ComboBoxItem>
+                                <ComboBoxItem>Praktykant</ComboBoxItem>
+                                <ComboBoxItem>Asystent</ComboBoxItem>
+                                <ComboBoxItem>Młodszy specjalista</ComboBoxItem>
+                                <ComboBoxItem>Specjalista (Mid / Regular)</ComboBoxItem>
+                                <ComboBoxItem>Starszy specjalista (Senior)</ComboBoxItem>
+                                <ComboBoxItem>Ekspert</ComboBoxItem>
+                                <ComboBoxItem>Kierownik</ComboBoxItem>
+                                <ComboBoxItem>Menedżer</ComboBoxItem>
+                                <ComboBoxItem>Dyrektor</ComboBoxItem>
+                                <ComboBoxItem>Prezes</ComboBoxItem>
+                                <ComboBoxItem>Pracownik fizyczny</ComboBoxItem>
                             </ComboBox>
                             <ComboBox Width="150" VerticalContentAlignment="Center">
-                                <ComboBoxItem IsSelected="True">Część etatu</ComboBoxItem>
+                                <ComboBoxItem>Część etatu</ComboBoxItem>
+                                <ComboBoxItem>Dodatkowa / tymczasowa</ComboBoxItem>
+                                <ComboBoxItem>Pełny etat</ComboBoxItem>
                             </ComboBox>
                             <Button Content="Szukaj" Width="100"/>
                         </StackPanel>
@@ -69,7 +85,32 @@
                         </ListView.ItemTemplate>
                     </ListView>
                 </ScrollViewer>
+
+                <StackPanel Margin="0,30,0,0" HorizontalAlignment="Center">
+                    <Label Content="Popularne kategorie" FontSize="25" FontWeight="bold" HorizontalAlignment="Center"/>
+                </StackPanel>
                 
+                <ScrollViewer HorizontalAlignment="Center" Margin="0,30,0,30" Width="735" Height="300">
+                    <ListView x:Name="categories_ListView">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Border Background="LightGray" Width="650" CornerRadius="10" BorderBrush="Black" BorderThickness="3" Height="75" VerticalAlignment="Top" Margin="0,5,0,5">
+                                    <Button CommandParameter="{Binding AnnouncementCategory_id}" x:Name="viewCategoryAnnouncement" Click="viewCategoryAnnouncement_Click" HorizontalContentAlignment="Stretch" Margin="1">
+                                        <StackPanel Margin="5">
+                                            <Label Content="{Binding Name}" FontSize="25" HorizontalAlignment="Center"/>
+                                        </StackPanel>
+                                    </Button>
+                                </Border>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </ScrollViewer>
+
             </StackPanel>
         </Grid>
     </ScrollViewer>
