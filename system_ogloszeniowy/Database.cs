@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using system_ogloszeniowy.classes;
 using system_ogloszeniowy.Tables;
 
@@ -150,6 +151,18 @@ namespace system_ogloszeniowy
         public Task<int> InsertCategory(Announcement_category category)
         {
             return _database.InsertAsync(category);
+        }
+        public Task<List<Announcement>> GetAnnouncementFilter(string text, Announcement_category category, string positionLevel, string workTime)
+        {
+            return _database.QueryAsync<Announcement>("SELECT * FROM Announcement WHERE Position_name LIKE(?) AND Category_id=? AND Position_level=? AND Work_time=?", $"%{text}%", category.AnnouncementCategory_id, positionLevel, workTime);
+        }
+        public Task<List<Announcement>> GetAnnouncementFilter(string text)
+        {
+            return _database.QueryAsync<Announcement>("SELECT * FROM Announcement WHERE Position_name LIKE(?) ", $"%{text}%");
+        }
+        public Task<List<Announcement>> GetAnnouncementFilter(int category_id)
+        {
+            return _database.QueryAsync<Announcement>("SELECT * FROM Announcement WHERE Category_id=?", category_id);
         }
     }
 }

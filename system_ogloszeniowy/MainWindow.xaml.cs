@@ -43,26 +43,27 @@ namespace system_ogloszeniowy
             //});
 
             //await App.Database.DeleteAnnouncement((await App.Database.GetAnnouncement(1)).ElementAt(0));
-
-            //await App.Database.InsertAnnouncement(new Announcement
-            //{
-            //    Company_id = 1,
-            //    Position_name = "performance marketing specialist",
-            //    Earnings = "165.00–185.00",
-            //    Adress = "aleje jerozolimskie 125, ochota, warszawa",
-            //    Position_level = "specjalista (mid / regular), starszy specjalista (senior)",
-            //    Contract_type = "kontrakt b2b",
-            //    Work_type = "cała polska (praca zdalna)",
-            //    Work_time = "pełen etat",
-            //    End_date = DateTime.Today.AddDays(2),
-            //    Responsibilities = "rozwój api rest dla naszych aplikacji mobilnych;dalszy rozwój naszych platform;pisanie czystego kodu w celu tworzenia funkcjonalnych aplikacji internetowych;tworzenie kodu i bibliotek wielokrotnego użytku do wykorzystania w przyszłości",
-            //    Requirements = "5 lat doświadczenia na podobnym stanowisku;doświadczenie z php;znajomość i18n, mariadb, twig, hetzner cloud;zaznajomienie z ogólnym konceptem pracy w chmurze i budowania aplikacji webowych;bardzo dobra znajomość języka angielskiego i niemieckiego (min. b2)",
-            //    Benefits = "dofinansowanie zajęć sportowych;prywatna opieka medyczna;pakiet opieki księgowej (do 3 wpisów miesięcznie)"
-            //});
-            await App.Database.InsertCategory(new Announcement_category()
+            //await App.Database.DeleteAnn();
+            await App.Database.InsertAnnouncement(new Announcement
             {
-                Name = "Budownictwo"
+                Category_id = 1,
+                Company_id = 1,
+                Position_name = "Performance marketing specialist",
+                Earnings = "155.00–165.00",
+                Adress = "aleje jerozolimskie 125, ochota, warszawa",
+                Position_level = "Specjalista (Mid / Regular)",
+                Contract_type = "kontrakt b2b",
+                Work_type = "cała polska (praca zdalna)",
+                Work_time = "Pełen etat",
+                End_date = DateTime.Today.AddDays(2),
+                Responsibilities = "rozwój api rest dla naszych aplikacji mobilnych;dalszy rozwój naszych platform;pisanie czystego kodu w celu tworzenia funkcjonalnych aplikacji internetowych;tworzenie kodu i bibliotek wielokrotnego użytku do wykorzystania w przyszłości",
+                Requirements = "5 lat doświadczenia na podobnym stanowisku;doświadczenie z php;znajomość i18n, mariadb, twig, hetzner cloud;zaznajomienie z ogólnym konceptem pracy w chmurze i budowania aplikacji webowych;bardzo dobra znajomość języka angielskiego i niemieckiego (min. b2)",
+                Benefits = "dofinansowanie zajęć sportowych;prywatna opieka medyczna;pakiet opieki księgowej (do 3 wpisów miesięcznie)"
             });
+            //await App.Database.InsertCategory(new Announcement_category()
+            //{
+            //    Name = "Budownictwo"
+            //});
         }
 
         private void mainPageNavigationButton_Click(object sender, RoutedEventArgs e)
@@ -75,6 +76,13 @@ namespace system_ogloszeniowy
         {
             if (user == null) return;
             PageFrame.Navigate(new UserPanelPage(this, user));
+        }
+
+        private async void searchAnnouncementButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (user == null) return;
+            var serachedAnnouncements = await App.Database.GetAnnouncementFilter(searchAnnouncement.Text);
+            PageFrame.Navigate(new SearchPage(this, user, serachedAnnouncements));
         }
     }
 }

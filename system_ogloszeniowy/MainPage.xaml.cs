@@ -47,9 +47,23 @@ namespace system_ogloszeniowy
             main.PageFrame.Navigate(new AnnouncementPage(main, user, announcement));
         }
 
-        private void viewCategoryAnnouncement_Click(object sender, RoutedEventArgs e)
+        private async void viewCategoryAnnouncement_Click(object sender, RoutedEventArgs e)
         {
+            var category_id = int.Parse(((Button)sender).CommandParameter.ToString());
+            var gotAnnouncements = await App.Database.GetAnnouncementFilter(category_id);
 
+            main.PageFrame.Navigate(new SearchPage(main, user, gotAnnouncements));
+        }
+
+        private async void serachFiltersButton_Click(object sender, RoutedEventArgs e)
+        {
+            var category = (Announcement_category)categoriesComboBox.SelectedItem;
+            var positionLevel = ((ComboBoxItem)occupationLevelComboBox.SelectedItem).Content.ToString();
+            var workType = ((ComboBoxItem)workTimeComboBox.SelectedItem).Content.ToString();
+
+            var gotAnnouncements = await App.Database.GetAnnouncementFilter(positionNameTextBox.Text, category, positionLevel, workType);
+
+            main.PageFrame.Navigate(new SearchPage(main, user, gotAnnouncements));
         }
     }
 }
