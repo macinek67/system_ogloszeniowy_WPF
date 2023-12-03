@@ -140,6 +140,10 @@ namespace system_ogloszeniowy
         {
             return _database.QueryAsync<Company>("SELECT * FROM Company WHERE Company_id=?", company_id);
         }
+        public Task<List<Company>> GetCompanies()
+        {
+            return _database.QueryAsync<Company>("SELECT * FROM Company");
+        }
         public Task<List<Announcement_category>> GetAllCategories()
         {
             return _database.QueryAsync<Announcement_category>("SELECT * FROM Announcement_category");

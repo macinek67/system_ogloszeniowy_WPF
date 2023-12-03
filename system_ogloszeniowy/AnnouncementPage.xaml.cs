@@ -81,7 +81,7 @@ namespace system_ogloszeniowy
 
         private void goBackButton_Click(object sender, RoutedEventArgs e)
         {
-            main.PageFrame.Navigate(new MainPage(main, user));
+            main.PageFrame.GoBack();
             return;
         }
 

@@ -31,6 +31,11 @@ namespace system_ogloszeniowy
             this.user = user;
             this.main = main;
             UploadData();
+            if (user.Role_id != 1)
+            {
+                addAnnouncementSeparator.Visibility = Visibility.Collapsed;
+                addNewAccouncementButton.Visibility = Visibility.Collapsed;
+            }
         }
 
         private async void UploadData()
@@ -108,8 +113,13 @@ namespace system_ogloszeniowy
 
         private void goBackButton_Click(object sender, RoutedEventArgs e)
         {
-            main.PageFrame.Navigate(new MainPage(main, user));
+            main.PageFrame.GoBack();
             return;
+        }
+
+        private void addNewAccouncementButton_Click(object sender, RoutedEventArgs e)
+        {
+            main.PageFrame.Navigate(new AddAccouncementPage(main, user));
         }
     }
 }
